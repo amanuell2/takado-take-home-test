@@ -12,12 +12,12 @@ const Search = () => {
             src="/assets/icons/search.svg"
             alt="Search"
           />
-          <div className="text-neutral-500 text-base font-medium tracking-wide self-center grow whitespace-nowrap my-auto">
+          <div className="text-primary-100  text-base font-regular tracking-wide self-center grow whitespace-nowrap my-auto font-lato">
             Venue type
           </div>
         </div>
         <div className="justify-between items-center bg-zinc-700 flex gap-5 px-6 py-3.5 max-md:px-5">
-          <div className="text-neutral-500 text-base font-medium tracking-wide my-auto">
+          <div className="text-primary-100  text-base font-regular tracking-wide my-auto font-lato">
             Date
           </div>
           <Image
@@ -28,7 +28,7 @@ const Search = () => {
           />
         </div>
         <div className="justify-between items-center bg-zinc-700 flex gap-5 px-6 py-3.5 rounded-br-2xl max-md:px-5">
-          <div className="text-neutral-500 text-base font-medium tracking-wide my-auto">
+          <div className="text-primary-100 text-base font-regular tracking-wide my-auto font-lato">
             Location
           </div>
           <Image
@@ -39,7 +39,7 @@ const Search = () => {
           />
         </div>
       </div>
-      <div className="text-zinc-900 text-base font-medium tracking-wide whitespace-nowrap justify-center items-center bg-lime-300 px-16 py-4 rounded-tl-2xl rounded-br-2xl max-md:px-5">
+      <div className="text-zinc-900 text-base font-regular tracking-wide whitespace-nowrap justify-center items-center bg-lime-300 px-16 py-4 rounded-tl-2xl rounded-br-2xl max-md:px-5">
         Search
       </div>
     </div>
