@@ -9,6 +9,7 @@ const QueryProvider = ({ children }: PropsWithChildren) => {
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
+        // @ts-ignore
         suspense: true
       }
     }
