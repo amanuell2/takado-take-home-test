@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import {SearchWrapper} from "@/components/home";
 import Image from "next/image";
 

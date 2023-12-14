@@ -28,14 +28,14 @@ const AutosuggestPanel = (props: { query: string | null }) => {
   }
 
   return (
-    <div className="absolute top-full mt-2 w-[51rem] bg-white rounded-tl-2xl shadow-lg z-50">
+    <div className="absolute top-full mt-2 w-[51rem] bg-white rounded-tl-2xl rounded-br-2xl shadow-lg z-50 px-4">
       <div className="py-2">
         {pokemon &&
           pokemon.length > 0 &&
           pokemon.map((p: any) => (
             <div
               key={p.id}
-              className="flex items-center justify-between px-6 py-2.5 hover:bg-gray-100 cursor-pointer"
+              className="flex items-center justify-between px-6 py-2.5 hover:bg-gray-100 hover:rounded-tl-2xl hover:rounded-br-2xl  cursor-pointer"
             >
               <div className="flex items-center gap-3 jus flex-1">
                 <div className="w-16 h-16  rounded-full">

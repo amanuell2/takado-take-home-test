@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { pokemonList } from "@/constant/pokemon";
 import { NextResponse } from "next/server";
 
