@@ -10,7 +10,7 @@ interface SearchProps {
   onSearchChanged?: (searchTerms: string) => void;
 }
 
-const Search = (props: SearchProps) => {
+export const Search = (props: SearchProps) => {
   const searchTermsRef = React.useRef<string>("");
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -107,4 +107,4 @@ const Search = (props: SearchProps) => {
   );
 };
 
-export default Search;
+
