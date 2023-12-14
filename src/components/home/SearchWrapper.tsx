@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import AutosuggestPanel from "../shared/panel/AutosuggestPanel";
 
 export const SearchWrapper = () => {
-  const [searchTerms, setSearchTerms] = useState<string>("");
+  const [searchTerms, setSearchTerms] = useState<string | null>(null);
 
   const onSearchChanged = (searchTerms: string) => {
     setSearchTerms(searchTerms);
@@ -23,7 +23,7 @@ export const SearchWrapper = () => {
         onSearchClicked={onSearchClicked}
         additionalClasses="mt-6"
       />
-      <Suspense fallback={searchTerms.length && <LoadingSuggestions />}>
+      <Suspense fallback={searchTerms && <LoadingSuggestions />}>
         <AutosuggestPanel query={searchTerms} />
       </Suspense>
     </div>
