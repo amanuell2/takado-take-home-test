@@ -2,13 +2,13 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
-function useWaitQuery(props: { query: string | null }) {
+function useWaitQuery(props: { query: string }) {
   const path = `/pokemon?q=${props.query}`;
-  const url = process.env.NEXT_PUBLIC_API_URL + path;
+  const url = "/api" + path;
 
   const query = useQuery({
     queryKey: ["pokemon", props.query],
-    queryFn: () => fetch(url).then((res) => res.text()),
+    queryFn: () => fetch(url.toString()).then((res) => res.text()),
     enabled: !!props.query,
   });
 
