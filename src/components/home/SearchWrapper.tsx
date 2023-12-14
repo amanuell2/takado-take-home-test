@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Search } from "@/components/shared/search";
 
 import { Suspense } from "react";
