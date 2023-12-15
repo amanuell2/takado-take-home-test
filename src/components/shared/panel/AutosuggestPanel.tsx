@@ -2,12 +2,22 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
+
+interface Pokemon {
+  url: string;
+  name: string;
+  image: string;
+}
+
 function useWaitQuery(props: { query: string | null }) {
-  const path = `/pokemon?q=${props.query}`;
-  const url = "/api" + path;
+  const path = `search?query=${props.query}`;
+  const url =
+    process.env.NODE_ENV === "development"
+      ? `${process.env.NEXT_PUBLIC_API_URL_DEV}${path}`
+      : `${process.env.NEXT_PUBLIC_API_URL_PROD}${path}`;
 
   const query = useQuery({
-    queryKey: ["pokemon", props.query],
+    queryKey: ["search", props.query],
     queryFn: () => fetch(url.toString()).then((res) => res.text()),
     enabled: !!props.query,
   });
@@ -21,20 +31,30 @@ const AutosuggestPanel = (props: { query: string | null }) => {
     return null;
   }
 
-  const { pokemon } = JSON.parse(data);
+  let pokemon;
+
+  try {
+    const parsedData = JSON.parse(data);
+    if (!parsedData || !parsedData.pokemon) {
+      throw new Error('Invalid JSON format: "pokemon" key not found');
+    }
+    pokemon = parsedData.pokemon;
+  } catch (e) {
+    console.error("Error parsing JSON data:", e);
+  }
 
   if (!pokemon || !pokemon.length) {
     return null;
   }
 
   return (
-    <div className="absolute top-full mt-2 w-[51rem] bg-white rounded-tl-2xl rounded-br-2xl shadow-lg z-50 px-4">
+    <div className="absolute top-full mt-2 w-full md:w-[51rem] bg-white rounded-tl-2xl rounded-br-2xl shadow-lg z-50 px-4 h-[24rem] overflow-y-auto">
       <div className="py-2">
         {pokemon &&
           pokemon.length > 0 &&
-          pokemon.map((p: any) => (
+          pokemon.map((p: Pokemon) => (
             <div
-              key={p.id}
+              key={p.url}
               className="flex items-center justify-between px-6 py-2.5 hover:bg-gray-100 hover:rounded-tl-2xl hover:rounded-br-2xl  cursor-pointer"
             >
               <div className="flex items-center gap-3 jus flex-1">
