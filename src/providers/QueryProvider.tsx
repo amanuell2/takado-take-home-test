@@ -9,10 +9,11 @@ const QueryProvider = ({ children }: PropsWithChildren) => {
     defaultOptions: {
       queries: {
         refetchOnWindowFocus: false,
+        staleTime: Infinity,
         // @ts-ignore
-        suspense: true
-      }
-    }
+        suspense: true,
+      },
+    },
   });
 
   return (
