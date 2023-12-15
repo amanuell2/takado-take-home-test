@@ -73,7 +73,7 @@ export const Search = (props: SearchProps) => {
             className="placeholder:text-primary-100 text-white text-base font-regular tracking-wide self-center grow whitespace-nowrap my-auto font-lato bg-transparent border-none focus:outline-none"
           />
         </div>
-        <div className="justify-between items-center bg-zinc-700 flex gap-5 px-6 py-3.5 max-md:px-5">
+        <div className="justify-between items-center bg-zinc-700 gap-5 px-6 py-3.5 flex  max-md:hidden max-md:px-5">
           <div className="text-primary-100  text-base font-regular tracking-wide my-auto font-lato">
             Date
           </div>
@@ -84,7 +84,7 @@ export const Search = (props: SearchProps) => {
             alt="arrow-down"
           />
         </div>
-        <div className="justify-between items-center bg-zinc-700 flex gap-5 px-6 py-3.5 rounded-br-2xl max-md:px-5">
+        <div className="justify-between items-center bg-zinc-700 flex gap-5 px-6 py-3.5 max-md:hidden rounded-br-2xl max-md:px-5">
           <div className="text-primary-100 text-base font-regular tracking-wide my-auto font-lato">
             Location
           </div>
