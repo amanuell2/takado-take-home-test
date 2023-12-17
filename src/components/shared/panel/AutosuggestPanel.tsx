@@ -1,13 +1,8 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { Pokemon } from "@/types";
 
-
-interface Pokemon {
-  url: string;
-  name: string;
-  image: string;
-}
 
 function useWaitQuery(props: { query: string | null }) {
   const path = `search?query=${props.query}`;
@@ -18,7 +13,12 @@ function useWaitQuery(props: { query: string | null }) {
 
   const query = useQuery({
     queryKey: ["search", props.query],
-    queryFn: () => fetch(url.toString()).then((res) => res.text()),
+    queryFn: () => fetch(url.toString()).then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return res.text();
+    }),
     enabled: !!props.query,
   });
 
